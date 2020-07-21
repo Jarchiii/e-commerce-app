@@ -1,21 +1,18 @@
 import React from 'react';
-import Header from './Header'
-import Presentation from './Presentation'
-import Advantage from './Advantage'
-import Footer from './Footer'
+import { Route, Switch } from "react-router-dom";
+import Home from './Home'
+import Products from './Products.jsx'
+
 import './index.css'
 
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <div className="home"> 
-      <Presentation/>
-      <Advantage/>
-      <Footer/>
-      </div>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/products" component={Products}/>
+
+    </Switch>
   );
 }
 
