@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Route, Switch } from "react-router-dom";
 import Home from './Home'
 import Products from './Products.jsx'
+import Cart from './Cart.jsx'
 
 import './index.css'
 
@@ -21,6 +22,7 @@ const UserContextValue = {currentCart, setCurrentCart}
         <Switch className="App">
           <Route exact path="/" component={Home}/>
           <Route exact path="/products" component={Products}/>
+          <Route exact path="/cart" component={Cart}/>
 
         </Switch>
       </div>

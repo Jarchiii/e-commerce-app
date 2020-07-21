@@ -154,3 +154,10 @@ body{
 .seeMore{
   font-size: 0.8em;
 }
+
+.cart{
+  position: relative;
+  top : 80px;
+  height: 90vh;
+  background-color: chartreuse;
+}

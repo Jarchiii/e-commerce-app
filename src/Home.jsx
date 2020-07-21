@@ -6,18 +6,14 @@ import Footer from './Footer'
 
 export class Home extends Component {
 
-    constructor(props){
-        super(props);
-        this.state= this.props
-    }
+ 
     
     
     render() {
-        console.log(this.props)
 
         return (
             <div className="App">
-                <Header action={this.state}/>
+                <Header />
                 <div className="home"> 
                 <Presentation/>
                 <Advantage/>

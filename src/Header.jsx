@@ -24,9 +24,12 @@ function Header(){
                         <a>A propos</a>
                     </div>
                     <div className="panier">
+                    <NavLink exact className="link" to="/cart">
                     <GiWindsock/>
-                        <a>{currentCart ? currentCart.length : "0"}</a>
+                        
+                        <a>{currentCart ? currentCart.length : ""}</a>
                         <a>Votre Panier</a>
+                    </NavLink>
                     </div>
                 </div>
             </div>
