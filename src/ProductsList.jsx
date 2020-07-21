@@ -14,10 +14,18 @@ export default function ProductsList(props) {
 
 
    const addCart = (e) => {
+       if (currentCart==null){ 
         let newCart = [...cart]
         newCart.push(e)
         setCart(newCart)
         setCurrentCart(newCart)
+       } else {
+        let newCart = [...currentCart]
+        newCart.push(e)
+        setCart(newCart)
+        setCurrentCart(newCart)
+
+       }
     }
 
 
