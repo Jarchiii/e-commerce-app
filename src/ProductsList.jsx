@@ -17,9 +17,7 @@ export default function ProductsList(props) {
         let newCart = [...cart]
         newCart.push(e)
         setCart(newCart)
-        setCurrentCart(cart)
-        console.log(cart)
-        console.log("ici", currentCart)
+        setCurrentCart(newCart)
     }
 
 

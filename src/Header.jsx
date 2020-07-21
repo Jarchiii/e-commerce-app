@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, useContext } from 'react'
 import {GiWindsock} from 'react-icons/gi'
 import { NavLink } from "react-router-dom";
+import UserCart from "./context/userCart"
 
 
-export class Header extends Component {
-    render() {
+
+function Header(){
+
+    const {currentCart} = useContext(UserCart);
+
         return (
             <div className="header">
                 <div className="title">
@@ -21,12 +25,13 @@ export class Header extends Component {
                     </div>
                     <div className="panier">
                     <GiWindsock/>
+                        <a>{currentCart ? currentCart.length : "0"}</a>
                         <a>Votre Panier</a>
                     </div>
                 </div>
             </div>
         )
     }
-}
+
 
 export default Header
