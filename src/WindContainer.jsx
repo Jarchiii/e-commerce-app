@@ -9,7 +9,7 @@ export class WindContainer extends Component {
 
     render() {
        var  {element} = this.props
-       var {addCart} = this.props
+       var {action} = this.props
         return (
             <div className="windContainer">
             <img  className="imgWind" src={element.image}></img>
@@ -17,7 +17,7 @@ export class WindContainer extends Component {
                 <h3>{element.name}</h3> 
                 <h5>Prix : {element.price} €</h5>
                 <div className="basketbtn">
-                    <button onClick={(e)=>addCart(element)}>
+                    <button onClick={(e)=>action(element)}>
                     <IoIosAddCircleOutline />
                      <a className="add">Ajouter {element.name } au panier</a>
                     </button>
