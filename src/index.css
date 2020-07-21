@@ -132,3 +132,25 @@ body{
   align-items: center;
 
 }
+
+.infos{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basketbtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add{
+  font-size: 0.8em;
+  margin: 5px
+}
+
+.seeMore{
+  font-size: 0.8em;
+}

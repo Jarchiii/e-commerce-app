@@ -5,10 +5,12 @@ import Advantage from './Advantage'
 import Footer from './Footer'
 
 export class Home extends Component {
+    
+    
     render() {
         return (
             <div className="App">
-                <Header/>
+                <Header />
                 <div className="home"> 
                 <Presentation/>
                 <Advantage/>

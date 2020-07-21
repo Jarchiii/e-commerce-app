@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
+import { IoIosAddCircleOutline } from "react-icons/io";
+import WindContainer from './WindContainer';
 
 export class ProductsList extends Component {
     constructor(props){
         super(props)
         this.state = {
-            data : this.props.products.winds
+            data : this.props.products.winds,
+            cart : []
         }
+
     }
+
+    addCart= (wind) => {
+        let newCart = [...this.state.cart]
+        newCart.push(wind)
+        this.setState({cart : newCart})
+        
+    }
+
+
     render() {
         console.log(this.props)
+        console.log(this.addCart)
         return (
             <div className="productsList">
-                {this.state.data ?  this.state.data.map(function(element){
-                    return (
-                        <div className="windContainer">
-                            <img  className="imgWind" src={element.image}></img>
-                           <h3>{element.name}</h3> 
-                           <h5>Prix : {element.price} €</h5>
-
-                        </div>)}): "no product" }
+                {this.state.data ?  this.state.data.map((element) => {
+                    return ( <WindContainer element={element} addCart={this.addCart}/>
+                       )}): "no product" }
 
             </div>
         )
