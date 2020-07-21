@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route, Switch } from "react-router-dom";
 import Home from './Home'
 import Products from './Products.jsx'
@@ -6,13 +6,25 @@ import Products from './Products.jsx'
 import './index.css'
 
 
-function App() {
-  return (
-    <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route exact path="/products" component={Products}/>
+import UserCart from "./context/userCart"
 
-    </Switch>
+function App() {
+  const [currentCart, setCurrentCart] = useState(null)
+
+
+
+const UserContextValue = {currentCart, setCurrentCart}
+
+  return (
+    <UserCart.Provider value={UserContextValue}>
+      <div>
+        <Switch className="App">
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/products" component={Products}/>
+
+        </Switch>
+      </div>
+      </UserCart.Provider>
   );
 }
 
