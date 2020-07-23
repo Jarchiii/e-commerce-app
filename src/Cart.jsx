@@ -30,6 +30,10 @@ function Cart() {
           
     }
 
+    function giveImg(wind){
+        return winds.filter(element => (element.name==wind))[0].image
+    }
+
 
 
 
@@ -39,6 +43,7 @@ function Cart() {
        var bill = winds.map(element => {
           var couple = {}
           couple.wind = element
+          couple.image = giveImg(element)
           couple.occurence = checkOccurence(element, currentCart)
           couple.unitPrice = givePrice(element)
           couple.total = couple.unitPrice*couple.occurence
@@ -63,6 +68,7 @@ function Cart() {
                             <thead>
                                     <tr>
                                         <th>Produit</th>
+                                        <th>Photos</th>
                                         <th>Prix à l'unité</th>
                                         <th>Nb</th>
                                         <th>Total</th>
@@ -73,6 +79,9 @@ function Cart() {
                             <tbody>
                                 <tr>
                                     <td>{element.wind}</td>
+                                    <td> 
+                                        <img src={element.image}></img>
+                                     </td>
                                     <td>{element.unitPrice}</td>
                                     <td>{element.occurence}</td>
                                     <td>{element.total}</td>
