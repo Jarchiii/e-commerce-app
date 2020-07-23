@@ -70,28 +70,21 @@ function Cart() {
                             </thead>
                 {currentCart ? cartBill.map(function(element){
                     return(
-                   
-                        
                             <tbody>
-                        <tr>
-                            <td>{element.wind}</td>
-                            <td>{element.unitPrice}</td>
-
-                            <td>{element.occurence}</td>
-                            <td>{element.total}</td>
-                         </tr>
-
-                            </tbody>
-                    
-            
-                        
-                            
-                      
+                                <tr>
+                                    <td>{element.wind}</td>
+                                    <td>{element.unitPrice}</td>
+                                    <td>{element.occurence}</td>
+                                    <td>{element.total}</td>
+                                </tr>
+                              
+                            </tbody>   
                     )
                 }) : 
                      <div>No products</div>
                 }
                 </table>
+                <div>Total = {cartBill.reduce((acc, currentValue) => acc+currentValue.total, 0) }</div>
             </div>
 
         </div>
