@@ -1,4 +1,4 @@
-import React , {useContext} from 'react'
+import React , {useContext, useState, useEffect} from 'react'
 import UserCart from "./context/userCart"
 import Header from './Header'
 
@@ -6,22 +6,50 @@ import winds from './Winds'
 
 function Cart() {
     const {currentCart} = useContext(UserCart);
+    const [cartBill, setCartBill] = useState([])
     console.log(currentCart)
 
     function currentCartWind(cart){
         var cartWind = []
         cart.map(element => {
-            if (cartWind(element.name)==-1){
+            if (cartWind.indexOf(element.name)==-1){
                 cartWind.push(element.name)
             }
-        return cartWind
+        
         })
+        return cartWind
     }
 
 
     function checkOccurence(wind, cart){
       return cart.filter(element => element.name==wind).length
             }
+
+    function givePrice(wind){
+        return winds.filter(element => (element.name==wind))[0].price
+          
+    }
+
+
+
+
+    useEffect(() => {
+  if (currentCart){ 
+      var winds =  currentCartWind(currentCart)
+       var bill = winds.map(element => {
+          var couple = {}
+          couple.wind = element
+          couple.occurence = checkOccurence(element, currentCart)
+          couple.unitPrice = givePrice(element)
+          couple.total = couple.unitPrice*couple.occurence
+         return  couple
+          
+
+       } )
+       setCartBill(bill)
+
+        
+    }}, []);
 
         
 
@@ -31,11 +59,13 @@ function Cart() {
         <div>
             <Header/>
             <div className="cart">
-                {currentCart ? currentCart.map(function(element){
+                {currentCart ? cartBill.map(function(element){
                     return(
                         <div>
-                            <div>{element.name}</div>
-                            <div>{element.price}</div>
+                            <div>{element.wind}</div>
+                            <div>{element.occurence}</div>
+                            <div>{element.unitPrice}</div>
+                            <div>{element.total}</div>
                         </div>
                     )
                 }) : 
