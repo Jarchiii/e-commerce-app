@@ -59,18 +59,39 @@ function Cart() {
         <div>
             <Header/>
             <div className="cart">
+            <table>
+                            <thead>
+                                    <tr>
+                                        <th>Produit</th>
+                                        <th>Prix à l'unité</th>
+                                        <th>Nb</th>
+                                        <th>Total</th>
+                                    </tr>
+                            </thead>
                 {currentCart ? cartBill.map(function(element){
                     return(
-                        <div>
-                            <div>{element.wind}</div>
-                            <div>{element.occurence}</div>
-                            <div>{element.unitPrice}</div>
-                            <div>{element.total}</div>
-                        </div>
+                   
+                        
+                            <tbody>
+                        <tr>
+                            <td>{element.wind}</td>
+                            <td>{element.unitPrice}</td>
+
+                            <td>{element.occurence}</td>
+                            <td>{element.total}</td>
+                         </tr>
+
+                            </tbody>
+                    
+            
+                        
+                            
+                      
                     )
                 }) : 
                      <div>No products</div>
                 }
+                </table>
             </div>
 
         </div>
