@@ -64,36 +64,27 @@ function Cart() {
         <div>
             <Header/>
             <div className="cart">
-            <table>
-                            <thead>
-                                    <tr>
-                                        <th>Produit</th>
-                                        <th>Photos</th>
-                                        <th>Prix à l'unité</th>
-                                        <th>Nb</th>
-                                        <th>Total</th>
-                                    </tr>
-                            </thead>
+            
                 {currentCart ? cartBill.map(function(element){
                     return(
-                            <tbody>
-                                <tr>
-                                    <td>{element.wind}</td>
-                                    <td> 
-                                        <img src={element.image}></img>
-                                     </td>
-                                    <td>{element.unitPrice}</td>
-                                    <td>{element.occurence}</td>
-                                    <td>{element.total}</td>
-                                </tr>
+                            <div className="productCart">
+                                <div className="containerImgCart">
+                                  <img className="imgTable" src={element.image}></img>
+                                </div>
+                                <div className="cartInfoContainer">
+                                    <h4>{element.wind}</h4>
+                                    <p>{element.occurence}</p>
+                                    <p>{element.total} $</p>
+                                </div>
+                             
                               
-                            </tbody>   
+                            </div>   
                     )
                 }) : 
                      <div>No products</div>
                 }
-                </table>
-                <div>Total = {cartBill.reduce((acc, currentValue) => acc+currentValue.total, 0) }</div>
+               
+                <div className="total">Total = {cartBill.reduce((acc, currentValue) => acc+currentValue.total, 0) }</div>
             </div>
 
         </div>
